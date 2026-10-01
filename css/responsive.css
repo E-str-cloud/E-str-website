@@ -1,0 +1,73 @@
+/* Responsive layer on top of the 1440px design.
+   At 1440px and wider the page renders exactly as designed; below that,
+   these rules override the inline styles (hence !important). */
+
+.page {
+  width: 100% !important;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: auto !important;
+  min-height: var(--design-h);
+}
+
+.btn-accent, .btn-primary, .btn-secondary { white-space: nowrap; }
+
+/* ---------- Laptop / small desktop ---------- */
+@media (max-width: 1439px) {
+  .hero-phone { left: 50% !important; transform: translateX(-50%); }
+}
+
+@media (max-width: 1200px) {
+  .sec, .site-header, .site-footer {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 900px) {
+  .page { min-height: 0; }
+
+  .sec.grid-2 { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .sec > .grid-3 { grid-template-columns: 1fr !important; }
+  .sec > .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+
+  .cta-band {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 40px 32px !important;
+  }
+  /* keep the decorative leaf in the corner, away from the headline */
+  .cta-band > svg { left: -150px !important; top: -95px !important; }
+
+  .site-footer {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 560px) {
+  .sec {
+    padding: 40px 20px !important;
+  }
+  .site-header, .site-footer {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .site-header { height: 72px !important; }
+  .site-header .logo { height: 32px !important; }
+  .main-nav { gap: 16px !important; }
+  .main-nav .btn-accent { padding: 10px 16px !important; min-height: 44px; }
+
+  .h1 { font-size: 30px !important; line-height: 38px !important; }
+  .h2 { font-size: 24px !important; line-height: 32px !important; }
+
+  .sec > .grid-4 { grid-template-columns: 1fr !important; }
+  form .grid-2 { grid-template-columns: 1fr !important; }
+
+  .form-card { padding: 24px !important; }
+  .cta-band { padding: 32px 24px !important; }
+}
